@@ -6,7 +6,7 @@ from sklearn.linear_model import LinearRegression
 import pickle
 import requests
 import json
-app = Flask(__name__)
+application = app = Flask(__name__)
 
 
 @app.route('/')
