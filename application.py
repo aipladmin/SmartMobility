@@ -6,14 +6,14 @@ from sklearn.linear_model import LinearRegression
 import pickle
 import requests
 import json
-application = app = Flask(__name__)
+application = Flask(__name__)
 
 
-@app.route('/')
+@application.route('/')
 def hello_world():
     return 'Hello World!'
 
-@app.route('/api/v1/jsondata/all')
+@application.route('/api/v1/jsondata/all')
 def api():
 	mlroutes = None
 	mlroutes = {
@@ -48,7 +48,7 @@ def api():
 	mljson.close() 
 	return "DATA"
 
-@app.route('/api/v1/jsondata/cd/<string:day>/<string:time>',methods=['GET'])
+@application.route('/api/v1/jsondata/cd/<string:day>/<string:time>',methods=['GET'])
 def curated_data(day,time):
 	cdjson = None
 	cdjson={'success':True,
@@ -192,4 +192,4 @@ def curated_data(day,time):
 	return cdjson
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run()
